@@ -1,0 +1,40 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license = "All Rights Reserved"
+
+[[mods]]
+    modId = "justenoughthings"
+    version = "${file.jarVersion}"
+    displayName = "JustEnoughThings"
+    authors = "MathisSkate"
+    description = '''
+    All you need Just Enough Things
+    '''
+
+[[dependencies.justenoughthings]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[36,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.justenoughthings]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.16.5,1.17)"
+    ordering = "NONE"
+    side = "BOTH"
+
+#[[dependencies.justenoughthings]]
+#    modId = "appliedenergistics2"
+#    mandatory = true
+#    versionRange = "[8.4.7,)"
+#    ordering = "NONE"
+#    side = "BOTH"
+
+#[[dependencies.justenoughthings]]
+#    modId = "curios"
+#    mandatory = true
+#    versionRange = "[1.16.5-4.0.8.2,)"
+#    ordering = "NONE"
+#    side = "BOTH"
