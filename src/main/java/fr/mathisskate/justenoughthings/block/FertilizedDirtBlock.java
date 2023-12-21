@@ -7,28 +7,30 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
 public class FertilizedDirtBlock extends Block {
     public static final BooleanProperty TILLED = BooleanProperty.create("tilled");
     private static final VoxelShape SHAPE_TILLED = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
-
+    private static final VoxelShape SHAPE_DEFAULT = Block.box(0.0D,0.0D,0.0D,16.0D, 16.0D,16.0D);
     public FertilizedDirtBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.DIRT).randomTicks());
-        this.defaultBlockState().setValue(TILLED, true);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(TILLED, false));
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+    public void randomTick(@NotNull BlockState state, ServerLevel level, BlockPos pos, Random random) {
         super.randomTick(state, level, pos, random);
 
         for (int i = 0; i < 3; i++) {
@@ -47,18 +49,14 @@ public class FertilizedDirtBlock extends Block {
         return state.getValue(TILLED);
     }
 
-    public static VoxelShape getShapeTilled() {
-        return SHAPE_TILLED;
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return state.getValue(TILLED) ? SHAPE_TILLED : SHAPE_DEFAULT;
     }
-
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(TILLED);
-    }
-
-    public boolean allowsMovement(BlockState state, ServerLevel level, BlockPos pos, PathComputationType type) {
-        return false;
     }
 
     @Override
@@ -67,9 +65,9 @@ public class FertilizedDirtBlock extends Block {
         boolean tilled = state.getValue(TILLED);
 
 
-        Block b = plantable.getPlant(world, pos.offset(facing.getNormal())).getBlock();
+        Block block = plantable.getPlant(world, pos.offset(facing.getNormal())).getBlock();
 
-        if (b instanceof AttachedStemBlock) {
+        if (block instanceof AttachedStemBlock) {
             return true;
         }
 
@@ -97,4 +95,10 @@ public class FertilizedDirtBlock extends Block {
     public boolean isFertile(BlockState state, BlockGetter level, BlockPos pos) {
         return true;
     }
+
+    /*@OnlyIn(Dist.CLIENT)
+    @Override
+    public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
+        tooltip.add("");
+    }*/
 }
