@@ -13,7 +13,7 @@
       "item": "minecraft:bone_meal"
     },
     "C": {
-      "tag": "forge:dirt"
+      "tag": "minecraft:dirt"
     }
   },
   "result": {

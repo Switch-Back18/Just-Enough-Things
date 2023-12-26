@@ -11,8 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
-import javax.annotation.Nonnull;
-
 import static fr.mathisskate.justenoughthings.util.References.jet_tab;
 
 

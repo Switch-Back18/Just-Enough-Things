@@ -42,7 +42,8 @@ public class JustEnoughThings {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        ModBlocks.BLOCKS.getEntries().forEach(b -> ItemBlockRenderTypes.setRenderLayer(b.get(), RenderType.translucent()));
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOB_GLASS_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PLAYER_GLASS_BLOCK.get(), RenderType.translucent());
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {
     }
