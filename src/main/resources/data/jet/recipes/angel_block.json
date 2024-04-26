@@ -1,0 +1,26 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " A ",
+    "CBC",
+    " R "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "tag": "forge:feathers"
+    },
+    "R": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "jet:angel_block",
+    "count": 1
+  }
+}

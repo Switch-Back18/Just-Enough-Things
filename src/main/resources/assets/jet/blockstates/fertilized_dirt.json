@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "tilled=false": {
+            "model": "jet:block/fertilized_dirt"
+        },
+        "tilled=true": {
+           "model": "jet:block/fertilized_dirt_tilled"
+        }
+    }
+}
