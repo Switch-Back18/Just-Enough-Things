@@ -1,13 +1,9 @@
 {
-  "itemGroup.jet": "Just Enough Things",
-
   "block.jet.fertilized_dirt": "Fertilized Dirt",
   "block.jet.angel_block": "Angel Block",
   "block.jet.mob_glass": "Mob Glass",
   "block.jet.player_glass" : "Player Glass",
 
   "item.jet.glass_cutter": "Glass Cutter",
-  "item.jet.glass_cutter_unbreakable": "Unbreakable Glass Cutter",
-  "item.jet.darksteel_ingot": "Darksteel Ingot",
-  "item.jet.the_ender": "The Ender"
+  "item.jet.glass_cutter_unbreakable": "Unbreakable Glass Cutter"
 }

@@ -16,7 +16,7 @@ public class AngelBlockItem extends BlockItem {
         super(ModBlocks.ANGEL_BLOCK.get(), new Properties());
     }
 
-    @Override
+    /*@Override
     public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
         Player player = context.getPlayer();
         Level world = context.getPlayer().level();
@@ -32,7 +32,7 @@ public class AngelBlockItem extends BlockItem {
                 player.getInventory().getSelected().shrink(1);
         }
         return super.onItemUseFirst(stack, context);
-    }
+    }*/
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
