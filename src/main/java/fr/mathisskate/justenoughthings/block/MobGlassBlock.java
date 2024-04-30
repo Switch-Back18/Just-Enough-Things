@@ -4,7 +4,6 @@ package fr.mathisskate.justenoughthings.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +16,7 @@ public class MobGlassBlock extends GlassBlock {
     private final boolean COLLIDEMOB;
 
     public MobGlassBlock() {
-        super(Properties.copy(Blocks.GLASS).isViewBlocking(MobGlassBlock::isntOpaque));
+        super(Properties.copy(Blocks.GLASS).noCollission().isSuffocating(MobGlassBlock::isntSolid).isViewBlocking(MobGlassBlock::isntOpaque));
         this.COLLIDEMOB = false;
     }
 
@@ -25,12 +24,14 @@ public class MobGlassBlock extends GlassBlock {
         return false;
     }
 
+    private static boolean isntSolid(BlockState state, BlockGetter getter, BlockPos pos) {
+        return false;
+    }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return (context instanceof EntityCollisionContext && ((EntityCollisionContext)context).getEntity() instanceof Mob) == COLLIDEMOB ? state.getShape(world, pos) : Shapes.empty();
     }
-
 
     /*@Override
     @OnlyIn(Dist.CLIENT)

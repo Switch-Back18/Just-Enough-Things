@@ -16,11 +16,15 @@ public class PlayerGlassBlock extends GlassBlock {
     private final boolean COLLIDEPLAYERS;
 
     public PlayerGlassBlock() {
-        super(Properties.copy(Blocks.GLASS).isViewBlocking(PlayerGlassBlock::isntOpaque));
+        super(Properties.copy(Blocks.GLASS).isSuffocating(PlayerGlassBlock::isntSolid).isViewBlocking(PlayerGlassBlock::isntOpaque));
         COLLIDEPLAYERS = false;
     }
 
     private static boolean isntOpaque(BlockState state, BlockGetter getter, BlockPos pos) {
+        return false;
+    }
+
+    private static boolean isntSolid(BlockState state, BlockGetter getter, BlockPos pos) {
         return false;
     }
 
