@@ -8,7 +8,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -17,8 +16,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Random;
 
 public class FertilizedDirtBlock extends Block {
     public static final BooleanProperty TILLED = BooleanProperty.create("tilled");
@@ -96,9 +93,8 @@ public class FertilizedDirtBlock extends Block {
         return true;
     }
 
-    /*@OnlyIn(Dist.CLIENT)
-    @Override
-    public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add("");
+    /*@Override
+    public void appendHoverText(ItemStack stack, @Nullable BlockGetter level, java.util.List<net.minecraft.network.chat.Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(p_49816_, p_49817_, p_49818_, p_49819_);
     }*/
 }

@@ -1,6 +1,5 @@
 package fr.mathisskate.justenoughthings.block;
 
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
