@@ -2,7 +2,7 @@
   "parent": "minecraft:block/template_farmland",
   "textures": {
     "particle": "jet:block/fertilized_dirt",
-    "dirt": "jet:block/fertilized_dirt",
+    "dirt": "jet:block/fertilized_dirt_side",
     "top": "jet:block/fertilized_dirt"
   }
 }

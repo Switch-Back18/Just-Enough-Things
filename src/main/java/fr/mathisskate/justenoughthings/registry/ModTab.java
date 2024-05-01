@@ -17,9 +17,9 @@ public class ModTab {
     public static final RegistryObject<CreativeModeTab> JET_TAB = CREATIVE_MODE_TABS.register("jet", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .title(Component.literal("Just Enough Things"))
-            .icon(() -> ModItems.FERTILIZED_DIRT_ITEM.get().getDefaultInstance())
+            .icon(() -> ModItems.ANGEL_BLOCK_ITEM.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(ModItems.FERTILIZED_DIRT_ITEM.get());
+                output.accept(ModItems.ANGEL_BLOCK_ITEM.get());
             }).build());
 
     public static void registerTab() {
