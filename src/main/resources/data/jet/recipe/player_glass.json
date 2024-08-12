@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GHG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "H": {
+      "item": "minecraft:player_head"
+    }
+  },
+  "result": {
+    "id": "jet:player_glass",
+    "count": 8
+  }
+}
