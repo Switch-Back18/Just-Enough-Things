@@ -1,7 +1,7 @@
 package fr.mathisskate.jet.util;
 
 import fr.mathisskate.jet.registry.ModBlocks;
-import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.Tags;
@@ -21,27 +21,12 @@ public class Utils {
         );
     }
 
-    public static boolean isCrop(BlockState blockState) {
-        List<TagKey<Block>> tags =  blockState.getTags().toList();
-        for(TagKey<Block> tag : tags) {
-            if (tag.toString().contains("minecraft:crops"))
-                return true;
-        }
-        return false;
+    public static boolean canGrow(Block block) {
+        ItemStack item = new ItemStack(block);
+        return item.is(Tags.Items.CROPS) || item.is(Tags.Items.SEEDS) || item.is(Tags.Items.MUSHROOMS) || block instanceof SugarCaneBlock || block instanceof SaplingBlock;
     }
-    public static boolean isPlant (BlockState blockState) {
-        Block block = blockState.getBlock();
-        if (Utils.isCrop(blockState)) {
-            return true;
-        } else if (block instanceof SugarCaneBlock) {
-            return true;
-        } else if (block instanceof SaplingBlock) {
-            return true;
-        } else if (block instanceof MushroomBlock) {
-            return true;
-        } else if (block instanceof NetherWartBlock) {
-            return true;
-        }
-        return false;
+
+    public static boolean isPlantable(ItemStack item) {
+        return item.is(Tags.Items.CROPS) || item.is(Tags.Items.SEEDS);
     }
 }

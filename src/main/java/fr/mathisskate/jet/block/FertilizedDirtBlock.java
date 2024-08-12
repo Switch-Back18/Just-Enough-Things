@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -43,7 +42,7 @@ public class FertilizedDirtBlock extends Block {
         super.randomTick(state, level, pos, random);
         BlockState aboveState = level.getBlockState(pos.above());
         for (int i = 0; i < 5; i++) {
-            if (Utils.isPlant(aboveState))
+            if (Utils.canGrow(aboveState.getBlock()))
                 aboveState.randomTick(level, pos.above(), random);
             else
                 break;
@@ -63,19 +62,17 @@ public class FertilizedDirtBlock extends Block {
 
     @Override
     public TriState canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, BlockState plant) {
-        Block block = plant.getBlock();
+        Block plantBlock = plant.getBlock();
+        ItemStack plantItem = new ItemStack(plantBlock);
         boolean tilled = state.getValue(TILLED);
-        if (Utils.isCrop(plant) && tilled) {
+        if (Utils.isPlantable(plantItem) && tilled)
             return TriState.TRUE;
-        } else if (block instanceof SugarCaneBlock && !tilled) {
+        else if (plantBlock instanceof SugarCaneBlock && !tilled)
             return TriState.TRUE;
-        } else if (block instanceof SaplingBlock && !tilled) {
+        else if (plantBlock instanceof SaplingBlock && !tilled)
             return TriState.TRUE;
-        } else if (block instanceof MushroomBlock && !tilled) {
+        else if (plantBlock instanceof MushroomBlock && !tilled)
             return TriState.TRUE;
-        } else if (block instanceof NetherWartBlock && tilled) {
-            return TriState.TRUE;
-        }
         return TriState.FALSE;
     }
 
