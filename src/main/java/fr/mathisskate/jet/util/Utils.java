@@ -1,12 +1,13 @@
 package fr.mathisskate.jet.util;
 
+import fr.mathisskate.jet.JustEnoughThings;
 import fr.mathisskate.jet.registry.ModBlocks;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.Tags;
 
-import java.util.List;
 
 public class Utils {
     public static boolean isGlass(BlockState blockState) {
@@ -27,6 +28,8 @@ public class Utils {
     }
 
     public static boolean isPlantable(ItemStack item) {
+        if(item.is(Items.SUGAR_CANE))
+            return false;
         return item.is(Tags.Items.CROPS) || item.is(Tags.Items.SEEDS);
     }
 }

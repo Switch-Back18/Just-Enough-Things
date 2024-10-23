@@ -1,7 +1,10 @@
 package fr.mathisskate.jet.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -24,7 +27,7 @@ public class PlayerGlassBlock extends Block {
     private final boolean COLLIDEPLAYERS;
 
     public PlayerGlassBlock() {
-        super(Properties.ofFullCopy(Blocks.GLASS).isSuffocating(PlayerGlassBlock::isntSolid).isViewBlocking(PlayerGlassBlock::isntOpaque));
+        super(Properties.ofFullCopy(Blocks.GLASS).setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("jet", "player_glass"))).isSuffocating(PlayerGlassBlock::isntSolid).isViewBlocking(PlayerGlassBlock::isntOpaque));
         COLLIDEPLAYERS = false;
     }
 

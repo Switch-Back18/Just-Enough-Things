@@ -2,7 +2,10 @@ package fr.mathisskate.jet.item;
 
 import fr.mathisskate.jet.util.Utils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +21,7 @@ import java.util.List;
 public class GlassCutterItem extends Item {
 
     public GlassCutterItem() {
-        super(new Properties().stacksTo(1).durability(250));
+        super(new Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("jet", "glass_cutter"))).stacksTo(1).durability(250));
     }
 
     @Override

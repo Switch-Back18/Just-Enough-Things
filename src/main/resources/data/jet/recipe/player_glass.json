@@ -1,17 +1,13 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "GGG",
     "GHG",
     "GGG"
   ],
   "key": {
-    "G": {
-      "item": "minecraft:glass"
-    },
-    "H": {
-      "item": "minecraft:player_head"
-    }
+    "G": "minecraft:glass",
+    "H": "minecraft:ender_eye"
   },
   "result": {
     "id": "jet:player_glass",

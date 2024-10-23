@@ -1,9 +1,13 @@
 package fr.mathisskate.jet.block;
 
+import fr.mathisskate.jet.JustEnoughThings;
 import fr.mathisskate.jet.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
@@ -33,8 +37,13 @@ public class FertilizedDirtBlock extends Block {
     private static final VoxelShape SHAPE_DEFAULT = Block.box(0.0D,0.0D,0.0D,16.0D, 16.0D,16.0D);
 
     public FertilizedDirtBlock() {
-        super(Properties.ofFullCopy(Blocks.DIRT));
+        super(Properties.ofFullCopy(Blocks.DIRT).setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("jet", "fertilized_dirt"))));
         this.registerDefaultState(this.getStateDefinition().any().setValue(TILLED, false));
+    }
+
+    @Override
+    protected boolean isRandomlyTicking(BlockState state) {
+        return true;
     }
 
     @Override
@@ -42,8 +51,9 @@ public class FertilizedDirtBlock extends Block {
         super.randomTick(state, level, pos, random);
         BlockState aboveState = level.getBlockState(pos.above());
         for (int i = 0; i < 5; i++) {
-            if (Utils.canGrow(aboveState.getBlock()))
+            if (Utils.canGrow(aboveState.getBlock())) {
                 aboveState.randomTick(level, pos.above(), random);
+            }
             else
                 break;
         }
@@ -65,8 +75,9 @@ public class FertilizedDirtBlock extends Block {
         Block plantBlock = plant.getBlock();
         ItemStack plantItem = new ItemStack(plantBlock);
         boolean tilled = state.getValue(TILLED);
-        if (Utils.isPlantable(plantItem) && tilled)
+        if (Utils.isPlantable(plantItem) && tilled) {
             return TriState.TRUE;
+        }
         else if (plantBlock instanceof SugarCaneBlock && !tilled)
             return TriState.TRUE;
         else if (plantBlock instanceof SaplingBlock && !tilled)

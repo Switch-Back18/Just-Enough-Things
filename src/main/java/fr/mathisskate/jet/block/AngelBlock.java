@@ -1,7 +1,10 @@
 package fr.mathisskate.jet.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +23,7 @@ import java.util.List;
 public class AngelBlock extends Block {
 
     public AngelBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).strength(1.0F).sound(SoundType.STONE));
+        super(Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("jet", "angel_block"))).mapColor(MapColor.STONE).strength(1.0F).sound(SoundType.STONE));
     }
 
     @Override

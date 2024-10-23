@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 @Mod(References.MODID)
 public class JustEnoughThings {
 
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public JustEnoughThings(IEventBus modEventBus, ModContainer modContainer)
     {
@@ -41,7 +41,6 @@ public class JustEnoughThings {
 
     @EventBusSubscriber(modid = References.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
-
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {

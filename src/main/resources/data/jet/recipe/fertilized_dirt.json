@@ -1,20 +1,14 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "ABA",
     "BCB",
     "ABA"
   ],
   "key": {
-    "A": {
-      "item": "minecraft:rotten_flesh"
-    },
-    "B": {
-      "item": "minecraft:bone_meal"
-    },
-    "C": {
-      "item": "minecraft:dirt"
-    }
+    "A": "minecraft:rotten_flesh",
+    "B": "minecraft:bone_meal",
+    "C": "minecraft:dirt"
   },
   "result": {
     "id": "jet:fertilized_dirt",

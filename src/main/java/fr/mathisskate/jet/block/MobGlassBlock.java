@@ -2,7 +2,10 @@ package fr.mathisskate.jet.block;
 
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -24,7 +27,7 @@ public class MobGlassBlock extends Block {
     private final boolean COLLIDEMOB;
 
     public MobGlassBlock() {
-        super(Properties.ofFullCopy(Blocks.GLASS).noCollission().isSuffocating(MobGlassBlock::isntSolid).isViewBlocking(MobGlassBlock::isntOpaque));
+        super(Properties.ofFullCopy(Blocks.GLASS).setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("jet", "mob_glass"))).noCollission().isSuffocating(MobGlassBlock::isntSolid).isViewBlocking(MobGlassBlock::isntOpaque));
         this.COLLIDEMOB = false;
     }
 

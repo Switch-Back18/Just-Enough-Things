@@ -1,13 +1,10 @@
 package fr.mathisskate.jet.event;
 
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Skeleton;
-import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -27,9 +24,9 @@ public class MobEvent {
                 Level world = skeleton.level();
                 if(world.dimension() == Level.NETHER && !world.isClientSide()) {
                     event.setCanceled(true);
-                    WitherSkeleton witherSkeleton = skeleton.convertTo(EntityType.WITHER_SKELETON, true);
-                    if(witherSkeleton != null)
+                    skeleton.convertTo(EntityType.WITHER_SKELETON, new ConversionParams(ConversionType.SINGLE, true, false, null), EntitySpawnReason.CONVERSION, witherSkeleton -> {
                         witherSkeleton.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.BOW));
+                    });
                 }
             }
     }
@@ -49,7 +46,7 @@ public class MobEvent {
         for(ItemEntity item : toRemove)
             event.getDrops().remove(item);
     }
-
+    
     private static boolean isMobEntity(LivingEntity entity) {
         return (entity instanceof Mob || entity instanceof AmbientCreature);
     }

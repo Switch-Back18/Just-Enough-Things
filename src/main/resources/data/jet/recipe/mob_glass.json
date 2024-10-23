@@ -1,17 +1,13 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "GGG",
     "GSG",
     "GGG"
   ],
   "key": {
-    "G": {
-      "item": "minecraft:glass"
-    },
-    "S": {
-      "item": "minecraft:ender_eye"
-    }
+    "G": "minecraft:glass",
+    "S": "minecraft:sculk"
   },
   "result": {
     "id": "jet:mob_glass",

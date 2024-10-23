@@ -1,17 +1,13 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "  N",
     " SN",
     "N  "
   ],
   "key": {
-    "N": {
-      "item": "minecraft:netherite_ingot"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "N": "minecraft:netherite_ingot",
+    "S": "minecraft:stick"
   },
   "result": {
     "id": "jet:glass_cutter_unbreakable",
