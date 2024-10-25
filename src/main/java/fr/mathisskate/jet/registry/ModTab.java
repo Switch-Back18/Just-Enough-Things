@@ -23,6 +23,8 @@ public class ModTab {
                 output.accept(ModItems.GLASS_CUTTER_UNBREAKABLE_ITEM);
                 output.accept(ModItems.PLAYER_GLASS_ITEM);
                 output.accept(ModItems.MOB_GLASS_ITEM);
+                output.accept(ModItems.ENDER_BUCKET_ITEM);
+                output.accept(ModItems.ROPE_ITEM);
             }).build());
 
     public static void registerTab(IEventBus eventBus) {

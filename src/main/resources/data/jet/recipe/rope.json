@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA ",
+    "AB ",
+    "  A"
+  ],
+  "key": {
+    "A": "minecraft:string",
+    "B": "minecraft:ender_pearl"
+  },
+  "result": {
+    "id": "jet:rope",
+    "count": 1
+  }
+}

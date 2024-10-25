@@ -7,5 +7,7 @@
   "block.jet.player_glass" : "Player Glass",
 
   "item.jet.glass_cutter": "Glass Cutter",
-  "item.jet.glass_cutter_unbreakable": "Unbreakable Glass Cutter"
+  "item.jet.glass_cutter_unbreakable": "Unbreakable Glass Cutter",
+  "item.jet.ender_bucket": "Ender Bucket",
+  "item.jet.rope": "Rope"
 }

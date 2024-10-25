@@ -25,7 +25,11 @@ public class ModItems {
     public static final DeferredItem<Item> GLASS_CUTTER_ITEM = ITEMS.register("glass_cutter", GlassCutterItem::new);
 
     public static final DeferredItem<Item> GLASS_CUTTER_UNBREAKABLE_ITEM = ITEMS.register("glass_cutter_unbreakable", GlassCutterUnbreakableItem::new);
-    
+
+    public static final DeferredItem<Item> ENDER_BUCKET_ITEM = ITEMS.register("ender_bucket", EnderBucketItem::new);
+
+    public static final DeferredItem<Item> ROPE_ITEM = ITEMS.register("rope", RopeItem::new);
+
     public static void registerItems(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

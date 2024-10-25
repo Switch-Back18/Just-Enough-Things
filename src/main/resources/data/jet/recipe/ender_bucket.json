@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "ABA",
+    " A "
+  ],
+  "key": {
+    "A": "minecraft:netherite_ingot",
+    "B": "minecraft:ender_eye"
+  },
+  "result": {
+    "id": "jet:ender_bucket",
+    "count": 1
+  }
+}
