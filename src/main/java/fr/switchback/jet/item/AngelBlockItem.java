@@ -1,23 +1,21 @@
-package fr.mathisskate.jet.item;
+package fr.switchback.jet.item;
 
-import fr.mathisskate.jet.registry.ModBlocks;
+import fr.switchback.jet.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class AngelBlockItem extends BlockItem {
     public AngelBlockItem() {
-        super(ModBlocks.ANGEL_BLOCK.get(), new Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("jet", "angel_block"))));
+        super(ModBlocks.ANGEL_BLOCK.get(), new Properties());
     }
 
     @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if (!level.isClientSide()){
             double x = player.getX() + 5 * player.getLookAngle().x;
             double y = 1.5 + player.getY() + 5 * player.getLookAngle().y;

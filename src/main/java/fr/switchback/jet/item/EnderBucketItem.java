@@ -1,13 +1,11 @@
-package fr.mathisskate.jet.item;
+package fr.switchback.jet.item;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
@@ -27,23 +25,25 @@ import java.util.List;
 
 public class EnderBucketItem extends BucketItem {
     public EnderBucketItem() {
-        super(Fluids.EMPTY, new Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("jet", "ender_bucket"))).stacksTo(1).durability(250));
+        super(Fluids.EMPTY, new Properties().stacksTo(1).durability(250));
     }
 
     @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         BlockHitResult blockHitResult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
         BlockPos pos = blockHitResult.getBlockPos();
         BlockState state = level.getBlockState(pos);
         FluidState fluid = state.getFluidState();
         ItemStack stack = player.getItemInHand(hand);
         if (fluid.isSource()) {
-            level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
-            player.makeSound(SoundEvents.BUCKET_FILL);
-            stack.hurtAndBreak(1, player, player.getEquipmentSlotForItem(player.getItemInHand(hand)));
-            return InteractionResult.SUCCESS;
+            if(!level.isClientSide()) {
+                level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+                stack.hurtAndBreak(1, player, player.getEquipmentSlotForItem(player.getItemInHand(hand)));
+            }
+            level.playSound(player, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+            return InteractionResultHolder.success(stack);
         }
-        return InteractionResult.FAIL;
+        return InteractionResultHolder.fail(stack);
     }
 
     @OnlyIn(Dist.CLIENT)

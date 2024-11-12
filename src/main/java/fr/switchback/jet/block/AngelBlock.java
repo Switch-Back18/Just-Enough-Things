@@ -1,4 +1,4 @@
-package fr.mathisskate.jet.block;
+package fr.switchback.jet.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +23,7 @@ import java.util.List;
 public class AngelBlock extends Block {
 
     public AngelBlock() {
-        super(Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("jet", "angel_block"))).mapColor(MapColor.STONE).strength(1.0F).sound(SoundType.STONE));
+        super(Properties.of().mapColor(MapColor.STONE).strength(1.0F).sound(SoundType.STONE));
     }
 
     @Override

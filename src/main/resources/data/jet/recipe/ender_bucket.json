@@ -6,8 +6,12 @@
     " A "
   ],
   "key": {
-    "A": "minecraft:netherite_ingot",
-    "B": "minecraft:ender_eye"
+    "A": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "B": {
+      "item": "minecraft:ender_eye"
+    }
   },
   "result": {
     "id": "jet:ender_bucket",

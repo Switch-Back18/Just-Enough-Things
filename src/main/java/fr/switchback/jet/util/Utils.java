@@ -1,7 +1,6 @@
-package fr.mathisskate.jet.util;
+package fr.switchback.jet.util;
 
-import fr.mathisskate.jet.JustEnoughThings;
-import fr.mathisskate.jet.registry.ModBlocks;
+import fr.switchback.jet.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;

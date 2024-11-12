@@ -6,8 +6,12 @@
     "I  "
   ],
   "key": {
-    "I": "minecraft:iron_ingot",
-    "S": "minecraft:stick"
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
   },
   "result": {
     "id": "jet:glass_cutter",

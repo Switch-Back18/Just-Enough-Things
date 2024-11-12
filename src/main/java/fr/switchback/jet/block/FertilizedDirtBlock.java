@@ -1,13 +1,9 @@
-package fr.mathisskate.jet.block;
+package fr.switchback.jet.block;
 
-import fr.mathisskate.jet.JustEnoughThings;
-import fr.mathisskate.jet.util.Utils;
+import fr.switchback.jet.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
@@ -37,7 +33,7 @@ public class FertilizedDirtBlock extends Block {
     private static final VoxelShape SHAPE_DEFAULT = Block.box(0.0D,0.0D,0.0D,16.0D, 16.0D,16.0D);
 
     public FertilizedDirtBlock() {
-        super(Properties.ofFullCopy(Blocks.DIRT).setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("jet", "fertilized_dirt"))));
+        super(Properties.ofFullCopy(Blocks.DIRT));
         this.registerDefaultState(this.getStateDefinition().any().setValue(TILLED, false));
     }
 

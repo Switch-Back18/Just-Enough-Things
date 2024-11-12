@@ -6,8 +6,12 @@
     "GGG"
   ],
   "key": {
-    "G": "minecraft:glass",
-    "H": "minecraft:ender_eye"
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "H": {
+      "item": "minecraft:amethyst_block"
+    }
   },
   "result": {
     "id": "jet:player_glass",
