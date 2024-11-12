@@ -1,12 +1,13 @@
-package fr.mathisskate.jet;
+package fr.switchback.jet;
 
 import com.mojang.logging.LogUtils;
-import fr.mathisskate.jet.event.FertilizedDirtEvent;
-import fr.mathisskate.jet.event.MobEvent;
-import fr.mathisskate.jet.registry.ModBlocks;
-import fr.mathisskate.jet.registry.ModItems;
-import fr.mathisskate.jet.registry.ModTab;
-import fr.mathisskate.jet.util.References;
+import fr.switchback.jet.event.FertilizedDirtEvent;
+import fr.switchback.jet.event.MobEvent;
+import fr.switchback.jet.registry.ModBlocks;
+import fr.switchback.jet.registry.ModDataComponents;
+import fr.switchback.jet.registry.ModItems;
+import fr.switchback.jet.registry.ModTab;
+import fr.switchback.jet.util.References;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
@@ -29,6 +30,7 @@ public class JustEnoughThings {
     {
         modEventBus.addListener(this::commonSetup);
 
+        ModDataComponents.registerDataComponents(modEventBus);
         ModBlocks.registerBlocks(modEventBus);
         ModItems.registerItems(modEventBus);
         ModTab.registerTab(modEventBus);

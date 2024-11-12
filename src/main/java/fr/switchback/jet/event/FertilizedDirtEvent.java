@@ -1,7 +1,7 @@
-package fr.mathisskate.jet.event;
+package fr.switchback.jet.event;
 
-import fr.mathisskate.jet.block.FertilizedDirtBlock;
-import fr.mathisskate.jet.registry.ModBlocks;
+import fr.switchback.jet.block.FertilizedDirtBlock;
+import fr.switchback.jet.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

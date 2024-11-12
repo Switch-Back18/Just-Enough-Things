@@ -1,12 +1,15 @@
-package fr.mathisskate.jet.registry;
+package fr.switchback.jet.registry;
 
-import fr.mathisskate.jet.block.*;
+import fr.switchback.jet.block.AngelBlock;
+import fr.switchback.jet.block.FertilizedDirtBlock;
+import fr.switchback.jet.block.MobGlassBlock;
+import fr.switchback.jet.block.PlayerGlassBlock;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static fr.mathisskate.jet.util.References.MODID;
+import static fr.switchback.jet.util.References.MODID;
 
 public class ModBlocks {
     public static DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);

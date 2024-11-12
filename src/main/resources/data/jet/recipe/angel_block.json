@@ -6,10 +6,18 @@
     " R "
   ],
   "key": {
-    "A": "minecraft:gold_ingot",
-    "B": "minecraft:obsidian",
-    "C": "minecraft:feather",
-    "R": "minecraft:diamond"
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "item": "minecraft:feather"
+    },
+    "R": {
+      "item": "minecraft:diamond"
+    }
   },
   "result": {
     "id": "jet:angel_block",

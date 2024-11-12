@@ -1,4 +1,4 @@
-package fr.mathisskate.jet.registry;
+package fr.switchback.jet.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -7,7 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static fr.mathisskate.jet.util.References.MODID;
+import static fr.switchback.jet.util.References.MODID;
 
 
 public class ModTab {

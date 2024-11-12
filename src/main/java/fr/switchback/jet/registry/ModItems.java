@@ -1,13 +1,13 @@
-package fr.mathisskate.jet.registry;
+package fr.switchback.jet.registry;
 
-import fr.mathisskate.jet.item.*;
+import fr.switchback.jet.item.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static fr.mathisskate.jet.util.References.MODID;
+import static fr.switchback.jet.util.References.MODID;
 
 public class ModItems {
     public static DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
@@ -29,6 +29,7 @@ public class ModItems {
     public static final DeferredItem<Item> ENDER_BUCKET_ITEM = ITEMS.register("ender_bucket", EnderBucketItem::new);
 
     public static final DeferredItem<Item> ROPE_ITEM = ITEMS.register("rope", RopeItem::new);
+
 
     public static void registerItems(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -6,8 +6,12 @@
     "N  "
   ],
   "key": {
-    "N": "minecraft:netherite_ingot",
-    "S": "minecraft:stick"
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
   },
   "result": {
     "id": "jet:glass_cutter_unbreakable",

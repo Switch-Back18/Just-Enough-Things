@@ -6,8 +6,12 @@
     "GGG"
   ],
   "key": {
-    "G": "minecraft:glass",
-    "S": "minecraft:sculk"
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "S": {
+      "item": "minecraft:sculk"
+    }
   },
   "result": {
     "id": "jet:mob_glass",
